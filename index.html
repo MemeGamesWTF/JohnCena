@@ -25,6 +25,7 @@
           navigator.serviceWorker.register("ServiceWorker.js");
         }
       });
+	window.unityInstance = null;
 
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -59,9 +60,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js";
       var config = {
-        dataUrl: buildUrl + "/a2f4a66d6bbac0d0ad38613be339b0fe.data",
-        frameworkUrl: buildUrl + "/da8acbbaa03ae17d169fbffa3f8128bb.framework.js",
-        codeUrl: buildUrl + "/ebc78552376cbfcdcac52e056aed58dc.wasm",
+        dataUrl: buildUrl + "/ecbc33fb5a0d72415cfbaf6e5426c713.data",
+        frameworkUrl: buildUrl + "/8a03697d5a45321c6cead196ed63defe.framework.js",
+        codeUrl: buildUrl + "/e8fbe19a99651a912ada63bedaba8143.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "MemegamesWTF",
         productName: "JohnCena",
@@ -93,6 +94,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+	  window.unityInstance = unityInstance;
         }).catch((message) => {
           alert(message);
         });
